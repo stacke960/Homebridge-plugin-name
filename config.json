@@ -1,0 +1,16 @@
+{
+    {
+        {"platforms": [
+            {
+                "name": "Config",
+                "port": 8581,
+                "platform": "config"
+            },
+            {
+                "name": "<PLUGIN_NAME>",
+                //... any other options, as listed in config.schema.json ...
+                "platform": "<PLATFORM_NAME>"
+            }
+        ]
+    }
+}

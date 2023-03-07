@@ -1,0 +1,43 @@
+{
+  "pluginAlias": "Zeptrion-AIR",
+  "pluginType": "platform",
+  "singular": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Name",
+        "type": "string",
+        "required": true,
+        "default": "Example Dynamic Platform"
+      }
+    },
+    "devices": {
+      "title": "Devices",
+      "type": "array",
+      "required": true,
+      "minLength": 1,
+      "items": {
+        "title": "Air Purifier",
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "required": true,
+            "placeholder": "Living Room Purifier",
+            "description": "Name of your device."
+          },
+          "ip": {
+            "title": "IP Address",
+            "type": "string",
+            "required": true,
+            "format": "ipv4",
+            "placeholder": "10.0.1.16",
+            "description": "IP address of your device."
+          }
+        }
+      }
+    }
+  }
+}
