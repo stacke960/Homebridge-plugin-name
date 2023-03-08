@@ -1,5 +1,13 @@
-import { API, DynamicPlatformPlugin, Logger, PlatformAccessory, PlatformConfig, Service, Characteristic } from 'homebridge';
+import { 
+  API, 
+  DynamicPlatformPlugin, 
+  Logger, 
+  PlatformAccessory, 
+  PlatformConfig, 
+  Service, Characteristic 
+} from 'homebridge';
 
+import { dicover } from "./discover";
 import { PLATFORM_NAME, PLUGIN_NAME } from './settings';
 import { ExamplePlatformAccessory } from './platformAccessory';
 
@@ -48,13 +56,14 @@ export class ExampleHomebridgePlatform implements DynamicPlatformPlugin {
    * This is an example method showing how to register discovered accessories.
    * Accessories must only be registered once, previously created accessories
    * must not be registered again to prevent "duplicate UUID" errors.
-   */
-  discoverDevices() {
+    */
+ async discoverDevices() {
+  const devices = await discover();
 
     // EXAMPLE ONLY
     // A real plugin you would discover accessories from the local network, cloud services
     // or a user-defined array in the platform config.
-    const exampleDevices = [
+   for (const devices of devices) {
       {
         exampleUniqueId: 'ABCD',
         exampleDisplayName: 'Bedroom',
